@@ -416,8 +416,21 @@ textarea.input {
   background-color: #1E1F29;
 }
 
+.header-links {
+  list-style-type: none;
+  margin: 0;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
 .header-links li {
-  display: inline-block;
+  display: block;
+  position: relative;
   margin-right: 15px;
   font-size: 12px;
 }
@@ -428,6 +441,11 @@ textarea.input {
 
 .header-links li a {
   color: #FFF;
+  padding: 5px 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
 }
 
 .header-links li a:hover {
@@ -436,7 +454,82 @@ textarea.input {
 
 .header-links li i {
   color: #D10024;
-  margin-right: 5px;
+  /*margin-right: 5px;*/
+  /*padding: 20px 10px 20px 0px;*/
+  margin: 0px 5px 0px 0px;
+}
+
+.sub-menu {
+  list-style-type: none;
+  position: absolute;
+  top:0;
+  left:100%;
+  min-width: 160px;
+  max-width: 225px;
+  background-color: #fff;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  padding: 5px 0;
+
+  box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
+  -o-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
+  -ms-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
+
+  visibility: hidden;
+  opacity: 0;
+  z-index: 15;
+  border-radius: 8px 0px 8px 8px;
+}
+
+.sub-menu li {
+  margin-right: 0px;
+}
+
+.header-links li .sub-menu {
+  top: 25px; /* 100% */
+  left: -100px;
+}
+
+.sub-menu li {
+  position: relative;
+  background-color: transparent;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+.sub-menu li a {
+  font-size: 12px;
+  line-height: 1.5;
+  color: black;
+  display: block;
+  padding: 5px 25px;
+  width: 100%;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+.header-links li:hover .sub-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sub-menu li:hover .sub-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sub-menu > li:hover > a {
+  background-color: #D10024;
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 /*----------------------------*\

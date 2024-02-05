@@ -1,7 +1,7 @@
 package com.JavaBootcamp03.mobilestore.security;
 
 import com.JavaBootcamp03.mobilestore.entity.CustomerEntity;
-import com.JavaBootcamp03.mobilestore.service.serviceInterface.AuthServiceImp;
+import com.JavaBootcamp03.mobilestore.service.serviceInterface.CustomerServiceImp;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -18,11 +18,11 @@ import java.util.List;
 @Service
 public class CustomAuthenProvider implements AuthenticationProvider {
     @Autowired
-    private AuthServiceImp authServiceImp;
+    private CustomerServiceImp customerServiceImp;
 
-    public CustomAuthenProvider(AuthServiceImp authServiceImp) {
+    public CustomAuthenProvider(CustomerServiceImp customerServiceImp) {
         super();
-        this.authServiceImp = authServiceImp;
+        this.customerServiceImp = customerServiceImp;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class CustomAuthenProvider implements AuthenticationProvider {
         String email = authentication.getPrincipal().toString();
         String password = authentication.getCredentials().toString();
 
-        CustomerEntity customerEntity = authServiceImp.checkLogin(email, password);
+        CustomerEntity customerEntity = customerServiceImp.checkLogin(email, password);
 
         if (customerEntity != null) {
             List<GrantedAuthority> listRoles = new ArrayList<>();
@@ -40,10 +40,7 @@ public class CustomAuthenProvider implements AuthenticationProvider {
 
             System.out.println("Kiem tra roles trong CustomAuthenProvider: " + listRoles);
 
-            UsernamePasswordAuthenticationToken authenticationToken =
-                    new UsernamePasswordAuthenticationToken("", "", listRoles);
-
-            return authenticationToken;
+            return new UsernamePasswordAuthenticationToken("", "", listRoles);
         }
 
         return null;

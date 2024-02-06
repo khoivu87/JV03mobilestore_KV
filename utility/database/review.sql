@@ -1,4 +1,4 @@
-INSERT INTO mobileStore.review (reviewTitle,reviewContent,reviewName,reviewEmail,reviewRating,id_product,createdAt,deletedAt) VALUES
+INSERT INTO mobilestore.review (reviewTitle,reviewContent,reviewName,reviewEmail,reviewRating,id_product,createdAt,deletedAt) VALUES
 	 ('Excellent phone','I''m very happy to have this product. Best money for value','Jackie Nguyen','jackienguyen@gmail.com',5,1,NULL,NULL),
 	 ('Good phone','Quite expensive but good phone to use','Mandy Tran','mandytran@yahoo.com',4,1,NULL,NULL),
 	 ('Satisfied phone','Got what I paid for, satisfied in overall','Felix Hoang','felixhoang@hotmail.com',3,1,NULL,NULL),

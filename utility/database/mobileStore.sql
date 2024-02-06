@@ -1,5 +1,5 @@
-CREATE DATABASE mobileStore
-USE mobileStore;
+CREATE DATABASE mobilestore
+USE mobilestore;
 
 CREATE TABLE role(
 	
